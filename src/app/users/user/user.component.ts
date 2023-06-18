@@ -29,9 +29,9 @@ export class UserComponent implements OnInit, OnDestroy {
     );
   }
 
-  /* its not nesseserly to to implement below execution, because angular will unsubscribe of 
+  /* its not nesseserly to implement below execution, because angular will unsubscribe of 
   this observable once the component destroyed, but if you gonna subscribe with your own observable,
-   you must implement below */
+  you must implement below */
    
   ngOnDestroy(): void {
     this.paramsSubscribtion.unsubscribe();
