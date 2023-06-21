@@ -8,14 +8,12 @@ import { UserComponent } from "../users/user/user.component";
 import { UsersComponent } from "../users/users.component";
 import { ServerComponent } from "../servers/server/server.component";
 import { NotfoundComponent } from "../notfound/notfound.component";
+import { AuthGuard } from "../auth-guard.service";
 
 
 export const routes: Routes = [
     {
-        path:'', redirectTo:'/mewo', pathMatch: 'full'
-    },
-    {
-        path: 'mewo',component:HomeComponent,canActivate:[]
+        path: '', component: HomeComponent
     }
     ,
     {
@@ -26,8 +24,7 @@ export const routes: Routes = [
         ]
     },
     {
-        path:'servers', component: ServersComponent, children:[
-
+        path:'servers', component: ServersComponent, canActivateChild:[AuthGuard], children:[
             {
                 path:':id', component: ServerComponent
             },
