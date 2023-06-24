@@ -15,6 +15,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { AppRoutesModule } from './routes/app-routes.module';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
+import { ErrorFoundComponent } from './error-found/error-found.component';
+import { ServerResolver } from './servers/server/server-resolver.service';
 
 @NgModule({
   declarations: [
@@ -25,14 +27,15 @@ import { AuthService } from './auth.service';
     UserComponent,
     EditServerComponent,
     ServerComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    ErrorFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutesModule
   ],
-  providers: [ServersService, AuthGuard, AuthService],
+  providers: [ServersService, AuthGuard, AuthService, ServerResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
